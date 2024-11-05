@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { LoginModules } from '../../modules/login.module';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [LoginModules],
+  imports: [LoginComponent],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })
