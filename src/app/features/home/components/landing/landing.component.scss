@@ -37,25 +37,6 @@
     color: #d1e8ff;
 }
   
-.register-button {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.75rem 1.5rem;
-    background: #ffffff;
-    color: #1d3557;
-    font-weight: bold;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 1rem;
-}
-  
-.register-button:hover {
-    background-color: #a8d2ff;
-    color: #1d3557;
-}
-  
 @media (max-width: 768px) {
     .landing-content {
         flex-direction: column;
@@ -72,10 +53,5 @@
   
     .welcome-section p {
         font-size: 1rem;
-    }
-  
-    .register-button {
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
     }
 }
