@@ -1,1 +1,55 @@
-<p>home works!</p>
+<mat-card class="card-container">
+    <mat-card-header>
+        <mat-card-title>Welcome to the Employee Leave Management System</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="landing-intro">
+            <p class="intro-text">
+                This application enables HR personnel to efficiently manage and track employee leave balances and approved leave requests.
+                <span class="highlight">Designed exclusively for the HR team,</span> 
+                this platform simplifies leave management and provides quick access to essential employee leave data.
+            </p>
+        </div>
+
+        <div class="features-section">
+            <h3>Key Features</h3>
+            <div class="features">
+                <mat-card class="feature-card">
+                    <mat-card-header>
+                        <mat-card-title>Employee Leave Tracking</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Input and track approved paper leave requests for active employees efficiently.</p>
+                    </mat-card-content>
+                </mat-card>
+
+                <mat-card class="feature-card">
+                    <mat-card-header>
+                        <mat-card-title>Leave Balance Overview</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Access up-to-date leave balances for employees, ensuring accurate record-keeping.</p>
+                    </mat-card-content>
+                </mat-card>
+
+                <mat-card class="feature-card">
+                    <mat-card-header>
+                        <mat-card-title>Streamlined Input</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Quickly add or update active employees in the system for easy tracking and management.</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="extra-text">
+            <p>Ready to manage employee leave data? Click below to get started!</p>
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button class="login-btn" color="primary" routerLink="/employees">Go to Employees</button>
+    </mat-card-actions>
+</mat-card>
