@@ -2,7 +2,7 @@ import { inject, Injectable, Signal, signal, computed } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { LoginRequest } from '../interfaces/auth/login';
+import { LoginRequest } from '../interfaces/auth/ILogin';
 
 @Injectable({
   providedIn: 'root'

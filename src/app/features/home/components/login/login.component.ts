@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../../core/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginModules } from '../../modules/login.module';
-import { LoginRequest } from '../../../../core/interfaces/auth/login';
+import { LoginRequest } from '../../../../core/interfaces/auth/ILogin';
 
 @Component({
   selector: 'app-login',
