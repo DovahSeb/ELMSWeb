@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from './core/services/auth.service';
 import { LandingComponent } from './features/home/components/landing/landing.component';
-import { HomeComponent } from './features/home/components/home/home.component';
+import { MenuComponent } from './features/home/components/menu/menu.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LandingComponent, HomeComponent],
+  imports: [LandingComponent, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
