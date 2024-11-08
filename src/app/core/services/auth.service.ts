@@ -34,6 +34,11 @@ export class AuthService {
     );
   }
 
+  logout() {
+    this._isAuthenticated.set(false);
+    this.clearAuthState();
+  }
+
   saveAuthState() {
     localStorage.setItem('isAuthenticated', JSON.stringify(this._isAuthenticated()));
   }
