@@ -1,0 +1,43 @@
+<mat-toolbar>
+    <span style="font-weight: bold;">List of Employees</span>
+    <span class="toolbar-spacer"></span>
+    <button class="add-driver-btn" style="color: #002b5c;" mat-raised-button>
+        <mat-icon>add</mat-icon>
+        <span class="btn-text">Add Employee</span>
+    </button>
+</mat-toolbar>
+
+<div class="table-container">
+    <table class="employee-table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(item of employees(); track item){
+                <tr>
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.department}}</td>
+                    <td class="action-buttons">
+                        <button mat-icon-button aria-label="View a driver">
+                            <mat-icon color="primary">visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button aria-label="Edit driver information">
+                            <mat-icon color="accent">edit</mat-icon>
+                        </button>
+                        <button mat-icon-button aria-label="Delete a driver">
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
