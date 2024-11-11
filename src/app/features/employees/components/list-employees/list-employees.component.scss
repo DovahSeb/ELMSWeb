@@ -1,0 +1,86 @@
+mat-toolbar {
+  background: #002b5c;
+  color: white;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.add-driver-btn {
+  display: flex;
+  align-items: center;
+}
+  
+.table-container {
+  padding: 1rem;
+  overflow-x: auto;
+}
+  
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.employee-table thead th {
+  background-color: #002b5c;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.employee-table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.action-buttons {
+  justify-content: center;
+  gap: 5px;
+}
+  
+@media (max-width: 768px) {
+  .add-driver-btn .btn-text {
+    display: none;
+  }
+  
+  .add-driver-btn {
+    padding: 8px;
+  }
+  
+  .add-driver-btn mat-icon {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .employee-table thead {
+    display: none;
+  }
+
+  .employee-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #002b5c;
+  }
+
+  .employee-table td {
+    display: block;
+    text-align: right;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .employee-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .employee-table tbody tr td[data-label='First Name']::before { content: 'First Name: '; }
+  .employee-table tbody tr td[data-label='Last Name']::before { content: 'Last Name: '; }
+  .employee-table tbody tr td[data-label='Department']::before { content: 'Department: '; }
+}
+  
