@@ -1,5 +1,9 @@
 export interface EmployeeRequest {
-
+    firstName: string;
+    lastName: string;
+    email: string;
+    dateJoined: string;
+    departmentId: number;
 }
 
 export interface EmployeeResponse {
