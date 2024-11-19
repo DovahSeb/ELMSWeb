@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>New Employee</h2>
+<form #userForm="ngForm" (ngSubmit)="saveNewEmployee(userForm)">
+    <mat-dialog-content>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <mat-form-field style="flex: 1 1 100%;">
+                <mat-label for="firstName">First Name</mat-label>
+                <input matInput id="firstName" name="firstName" [(ngModel)]="employeeForm.firstName" required>
+            </mat-form-field>
+            <mat-form-field style="flex: 1 1 100%;">
+                <mat-label for="lastName">Last Name</mat-label>
+                <input matInput id="lastName" name="lastName" [(ngModel)]="employeeForm.lastName" required>
+            </mat-form-field>
+            <mat-form-field style="flex: 1 1 100%;">
+                <mat-label for="email">Email</mat-label>
+                <input matInput id="email" name="email" [(ngModel)]="employeeForm.email" required>
+            </mat-form-field>
+            <mat-form-field style="flex: 1 1 100%;">
+                <mat-label for="dateJoined">Date Joined</mat-label>
+                <input matInput [matDatepicker]="picker" [max]="maxDate" id="dateJoined" name="dateJoined" [(ngModel)]="employeeForm.dateAdded" required>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field style="flex: 1 1 100%;">
+                <mat-label for="department">Select Department</mat-label>
+                <mat-select id="department" name="department" [(ngModel)]="employeeForm.departmentId" required>
+                    @for (department of departments(); track department) {
+                      <mat-option [value]="department.id">{{department.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button type="button" mat-button color="warn" (click)="closeDialog()" >Close</button>
+        <button type="submit" mat-button cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</form>

@@ -6,6 +6,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideToastr } from 'ngx-toastr';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { HttpErrorInterceptor } from './core/interceptors/http-error.interceptor';
+import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,5 +21,6 @@ export const appConfig: ApplicationConfig = {
       progressBar: true
     }),
     provideHttpClient(withInterceptors([HttpErrorInterceptor])),
+    provideNativeDateAdapter(), {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
   ]
 };
