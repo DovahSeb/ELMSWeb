@@ -2,7 +2,7 @@ export interface EmployeeRequest {
     firstName: string;
     lastName: string;
     email: string;
-    dateJoined: string;
+    dateAdded: string;
     departmentId: number;
 }
 
