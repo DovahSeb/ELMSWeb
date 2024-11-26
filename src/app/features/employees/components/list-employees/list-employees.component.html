@@ -1,7 +1,7 @@
 <mat-toolbar>
     <span style="font-weight: bold;">List of Employees</span>
     <span class="toolbar-spacer"></span>
-    <button class="add-driver-btn" style="color: #002b5c;" (click)="addEmployee()" mat-raised-button>
+    <button class="add-employee-btn" style="color: #002b5c;" (click)="addEmployee()" mat-raised-button>
         <mat-icon>add</mat-icon>
         <span class="btn-text">Add Employee</span>
     </button>
@@ -26,13 +26,13 @@
                     <td>{{item.email}}</td>
                     <td>{{item.department}}</td>
                     <td class="action-buttons">
-                        <button mat-icon-button aria-label="View a driver">
+                        <button mat-icon-button aria-label="View an employee">
                             <mat-icon color="primary">visibility</mat-icon>
                         </button>
-                        <button mat-icon-button aria-label="Edit driver information">
+                        <button mat-icon-button aria-label="Edit employee information">
                             <mat-icon color="accent">edit</mat-icon>
                         </button>
-                        <button mat-icon-button aria-label="Delete a driver">
+                        <button mat-icon-button aria-label="Delete an employee">
                             <mat-icon color="warn">delete</mat-icon>
                         </button>
                     </td>

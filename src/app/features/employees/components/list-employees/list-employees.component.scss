@@ -7,7 +7,7 @@ mat-toolbar {
   flex: 1 1 auto;
 }
 
-.add-driver-btn {
+.add-employee-btn {
   display: flex;
   align-items: center;
 }
@@ -42,15 +42,15 @@ mat-toolbar {
 }
   
 @media (max-width: 768px) {
-  .add-driver-btn .btn-text {
+  .add-employee-btn .btn-text {
     display: none;
   }
   
-  .add-driver-btn {
+  .add-employee-btn {
     padding: 8px;
   }
   
-  .add-driver-btn mat-icon {
+  .add-employee-btn mat-icon {
     margin-right: 0;
     margin-left: 0;
   }
