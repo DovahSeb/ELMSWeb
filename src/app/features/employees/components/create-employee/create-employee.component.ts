@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
-import { EmployeeRequest } from '../../../../core/interfaces/employee/IEmployee';
+import { EmployeeRequest } from './../../interfaces/IEmployee';
 import { ReferenceValueService } from '../../../../core/services/reference-value.service';
 import { DepartmentResponse } from '../../../../core/interfaces/reference/IReference';
 import { CreateEmployeesModule } from '../../modules/create-employee.module';
