@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { EmployeeService } from '../../services/employee.service';
-import { EmployeeResponse } from '../../../../core/interfaces/employee/IEmployee';
+import { EmployeeResponse } from './../../interfaces/IEmployee';
 import { ListEmployeesModules } from '../../modules/list-employees.module';
 import { CreateEmployeeComponent } from '../create-employee/create-employee.component';
 import { MatDialog } from '@angular/material/dialog';

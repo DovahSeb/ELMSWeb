@@ -11,5 +11,6 @@ export interface EmployeeResponse {
     firstName: string;
     lastName: string;
     email: string;
+    dateAdded: string;
     department: string;
 }
