@@ -24,7 +24,6 @@ export class CreateEmployeeComponent {
   departments = signal<DepartmentResponse[]>([]);
   readonly maxDate = new Date();
 
-  private employeeService = inject(EmployeeService);
   private referenceService = inject(ReferenceValueService);
   private dialogRef = inject(MatDialogRef<CreateEmployeeComponent>);
   private toastr = inject(ToastrService);
@@ -75,9 +74,6 @@ export class CreateEmployeeComponent {
   }
 
   private createEmployee(): void {
-    this.employeeService.createEmployee(this.employeeForm).subscribe({
-      next: (result) => this.dialogRef.close(result),
-      error: () => this.toastr.error('Failed to create new employee', 'Error'),
-    });
+    this.dialogRef.close(this.employeeForm);
   }
 }
