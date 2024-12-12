@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            @for(item of employees(); track item){
+            @for(item of employees(); track item.id){
                 <tr>
                     <td>{{item.firstName}}</td>
                     <td>{{item.lastName}}</td>
