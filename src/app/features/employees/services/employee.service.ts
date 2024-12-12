@@ -1,38 +1,54 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable, Signal, signal, WritableSignal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { EmployeeRequest, EmployeeResponse } from './../interfaces/IEmployee';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class EmployeeService {
-
   private readonly apiUrl = `${environment.baseUrl}/employees`;
-  private http = inject(HttpClient);
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+  private readonly _employees: WritableSignal<EmployeeResponse[]> = signal([]);
+  readonly employees: Signal<EmployeeResponse[]> = this._employees.asReadonly();
+
+  private readonly _selectedEmployee: WritableSignal<EmployeeResponse | null> = signal(null);
+  readonly selectedEmployee: Signal<EmployeeResponse | null> = this._selectedEmployee.asReadonly();
+
+  constructor(private http: HttpClient) {}
+
+  getEmployees(): void {
+    this.http.get<EmployeeResponse[]>(`${this.apiUrl}/GetEmployees`).subscribe((employees) => {
+      this._employees.set(employees);
+    });
   }
 
-  getEmployees(): Observable<EmployeeResponse[]>{
-    return this.http.get<EmployeeResponse[]>(`${this.apiUrl}/GetEmployees`);
+  getEmployeeById(id: string): void {
+    this.http.get<EmployeeResponse>(`${this.apiUrl}/GetEmployeeById/${id}`).subscribe((employee) => {
+      this._selectedEmployee.set(employee);
+    });
   }
 
-  getEmployeeById(id: string): Observable<EmployeeResponse>{
-    return this.http.get<EmployeeResponse>(`${this.apiUrl}/GetEmployeeById/${id}`);
+  createEmployee(newEmployee: EmployeeRequest): void {
+    this.http.post<EmployeeResponse>(`${this.apiUrl}/CreateEmployee`, newEmployee).subscribe((createdEmployee) => {
+      this._employees.update((currentEmployees) => [...currentEmployees, createdEmployee]);
+    });
   }
 
-  createEmployee(newEmployee: EmployeeRequest): Observable<EmployeeResponse>{
-    return this.http.post<EmployeeResponse>(`${this.apiUrl}/CreateEmployee`, newEmployee, this.httpOptions);
+  updateEmployee(id: string, updatedEmployee: EmployeeRequest): void {
+    this.http.put<EmployeeResponse>(`${this.apiUrl}/UpdateEmployee/${id}`, updatedEmployee).subscribe((employee) => {
+      this._employees.update((currentEmployees) =>
+        currentEmployees.map((e) => (e.id === employee.id ? employee : e))
+      );
+    });
   }
 
-  updateEmployee(id: string, employee: EmployeeRequest): Observable<EmployeeResponse>{
-    return this.http.put<EmployeeResponse>(`${this.apiUrl}/UpdateEmployee/${id}`, employee, this.httpOptions);
+  deleteEmployee(id: string): void {
+    this.http.delete<void>(`${this.apiUrl}/DeleteEmployee/${id}`).subscribe(() => {
+      this._employees.update((currentEmployees) =>
+        currentEmployees.filter((e) => e.id !== id)
+      );
+    });
   }
-
 }
