@@ -23,7 +23,7 @@
             <mat-form-field style="flex: 1 1 100%;">
                 <mat-label for="department">Select Department</mat-label>
                 <mat-select id="department" name="department" [(ngModel)]="employeeForm.departmentId" required>
-                    @for (department of departments(); track department) {
+                    @for (department of departments(); track department.id) {
                       <mat-option [value]="department.id">{{department.name}}</mat-option>
                     }
                 </mat-select>

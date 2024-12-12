@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, Signal, signal } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
 import { EmployeeRequest } from './../../interfaces/IEmployee';
@@ -20,17 +20,18 @@ import { DatePipe } from '@angular/common';
 
 export class CreateEmployeeComponent {
 
-  employeeForm: EmployeeRequest = this.initializeEmployeeForm();
-  departments = signal<DepartmentResponse[]>([]);
-  readonly maxDate = new Date();
-
   private referenceService = inject(ReferenceValueService);
   private dialogRef = inject(MatDialogRef<CreateEmployeeComponent>);
   private toastr = inject(ToastrService);
   private datePipe = inject(DatePipe);
 
-  ngOnInit(){
-    this.getDepartments();
+  employeeForm: EmployeeRequest = this.initializeEmployeeForm();
+  departments: Signal<DepartmentResponse[]>;
+  readonly maxDate = new Date();
+
+  constructor(){
+    this.departments = this.referenceService.departments;
+    this.referenceService.getDepartments();
   }
 
   saveNewEmployee(form: NgForm) {
@@ -44,13 +45,6 @@ export class CreateEmployeeComponent {
 
   closeDialog(): void {
     this.dialogRef.close();
-  }
-
-  private getDepartments(): void {
-    this.referenceService.getDepartments().subscribe({
-      next: result => this.departments.set(result),
-      error: () => this.toastr.error('Failed to load department values', 'Error')
-    });
   }
 
   private initializeEmployeeForm(): EmployeeRequest {
