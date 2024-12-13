@@ -1,9 +1,10 @@
 import { Component, inject, Signal } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EmployeeService } from '../../services/employee.service';
 import { EmployeeRequest, EmployeeResponse } from './../../interfaces/IEmployee';
 import { ListEmployeesModules } from '../../modules/list-employees.module';
+import { ViewEmployeeComponent } from '../view-employee/view-employee.component';
 import { CreateEmployeeComponent } from '../create-employee/create-employee.component';
-import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -24,6 +25,16 @@ export class ListEmployeesComponent {
   constructor(){
     this.employees = this.employeeService.employees;
     this.employeeService.getEmployees();
+  }
+
+  viewDriver(id: string): void {
+    this.dialog.open(ViewEmployeeComponent, {
+      height: 'auto',
+      width: '600px',
+      data: {
+        'id': id
+      }
+    });
   }
 
   addEmployee(): void {
