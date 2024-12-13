@@ -1,1 +1,27 @@
-<p>view-employee works!</p>
+<div class="view-employee-container">
+  <h3>Employee Details</h3>
+  @if (employee()){
+    <div class="employee-detail">
+      <label for="firstName">First Name:</label>
+      <span id="firstName">{{ employee()?.firstName }}</span>
+    </div>
+    <div class="employee-detail">
+      <label for="lastName">Last Name: </label>
+      <span id="lastName">{{ employee()?.lastName }}</span>
+    </div>
+    <div class="employee-detail">
+      <label for="email">Email: </label>
+      <span id="email">{{ employee()?.email }}</span>
+    </div>
+    <div class="employee-detail">
+      <label for="email">Department: </label>
+      <span id="email">{{ employee()?.department }}</span>
+    </div>
+  }
+  @else {
+    <p>Loading employee details...</p>
+  }
+  <div class="actions">
+    <button mat-button (click)="closeDialog()">Close</button>
+  </div>
+</div>

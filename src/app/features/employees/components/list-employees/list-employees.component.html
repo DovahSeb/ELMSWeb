@@ -26,7 +26,7 @@
                     <td>{{item.email}}</td>
                     <td>{{item.department}}</td>
                     <td class="action-buttons">
-                        <button mat-icon-button aria-label="View an employee">
+                        <button mat-icon-button aria-label="View an employee" (click)="viewDriver(item.id)">
                             <mat-icon color="primary">visibility</mat-icon>
                         </button>
                         <button mat-icon-button aria-label="Edit employee information">
