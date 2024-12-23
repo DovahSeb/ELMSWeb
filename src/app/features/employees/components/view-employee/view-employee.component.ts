@@ -1,4 +1,4 @@
-import { Component, inject, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Signal } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ViewEmployeeModule } from '../../modules/view-employee.module';
 import { EmployeeService } from '../../services/employee.service';
@@ -9,7 +9,8 @@ import { EmployeeResponse } from '../../interfaces/IEmployee';
   standalone: true,
   imports: [ViewEmployeeModule],
   templateUrl: './view-employee.component.html',
-  styleUrl: './view-employee.component.scss'
+  styleUrl: './view-employee.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ViewEmployeeComponent {
 
